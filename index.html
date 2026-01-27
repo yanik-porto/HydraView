@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Temporal Action Detection for Multi-Camera Systems.">
+  <meta name="keywords" content="TAD, Multiview, Skeleton, Mamba">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temporal Action Detection for Multi-Camera Systems</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/HydraView_logo.jpeg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://yanik-porto.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="column has-text-centered">
+            <img src="./static/images/HydraView_logo.jpeg" width=20% alt="HydraView."  />
+          </div>
+          <h1 class="title is-1 publication-title">Temporal Action Detection from Multiview Motion</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yanik-porto.github.io">Yannick Porto</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://renatojmsdh.github.io/">Renato Martins</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Thomas Chalumeau</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/cedricdemonceaux">Cédric Demonceaux</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Université Bourgogne Europe,</span>
+            <span class="author-block"><sup>2</sup>TEB Group</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yanik-porto/HydraView"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Paper Image. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <!-- <div class="publication-body"> -->
+      <img src="./static/images/overview.svg" class="interpolation-svg" alt="Training pipeline."/>
+      <h2 class="subtitle has-text-centered">
+        Overview of our temporal action detection method. For each view, an untrimmed sequence is passed to our spatio-temporal
+        encoder to generate features for each window of time. These features are then refined by our multi-view and multi-scale
+        temporal encoder before being projected to find the beginning and end of each action over time.
+      </h2>
+    </div>
+  </div>
+  <!--/ Paper Image. -->
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Temporal Action Detection (TAD) necessitates the precise recognition and localization of actions within untrimmed
+videos. Current approaches predominantly focus on single-view systems, which are constrained by a single perspective
+during both training and inference. Furthermore, existing skeleton-based methods typically rely on local temporal
+windows, often failing to capture long-range dependencies between these windows. To address these limitations, this
+paper introduces a novel multi-view framework designed to leverage complementary perspectives for more accurate action
+boundary detection. Our method employs a specialized encoder to extract motion features from localized temporal windows. These features are
+then integrated by HydraView, a multi-view and multi-scale temporal encoder that aggregates information across different
+perspectives to perform frame-level action detection. To mitigate the high computational overhead associated with
+managing long sequences in multi-view systems, we build HydraView upon the recent Mamba architecture, ensuring linear
+scaling and reduced inference time. Experimental results demonstrate that our approach outperforms several
+state-of-the-art TAD models on the BABEL and PKU-MMD datasets. Our code and pre-trained models will be made publicly
+available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper Image. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">SWGCN</h2>
+        <!-- <div class="publication-body"> -->
+        <img src="./static/images/swgcn.svg" class="interpolation-image" alt="Overview of our method." />
+      </div>
+    </div>
+    <!--/ Paper Image. -->
+
+    <!-- Paper Image. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">HydraView</h2>
+        <!-- <div class="publication-body"> -->
+        <img src="./static/images/HydraView.svg" class="interpolation-image" alt="Overview of our method." />
+      </div>
+    </div>
+    <!--/ Paper Image. -->
+
+    <!-- Paper Image. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">View Scan</h2>
+        <!-- <div class="publication-body"> -->
+        <img src="./static/images/ViewScan.svg" class="interpolation-image" alt="Overview of our method." />
+      </div>
+    </div>
+    <!--/ Paper Image. -->
+
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/yanik-porto/HydraView.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
